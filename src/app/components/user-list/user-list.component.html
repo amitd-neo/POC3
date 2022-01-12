@@ -1,0 +1,46 @@
+<div style="padding: 16px">
+  <h2>User List</h2>
+  <input type="text" [(ngModel)]="search" #ctrl="ngModel" class="input" />&nbsp;
+  <button
+    mat-raised-button
+    color="primary"
+    (click)="getUsersByName()"
+    style="margin-bottom: 10px"
+  >
+    Get By Name</button
+  >&nbsp;
+  <button
+    mat-raised-button
+    color="primary"
+    (click)="getUsersByPinCode()"
+    style="margin-bottom: 10px"
+  >
+    Get By PinCode
+  </button>
+  <table>
+    <thead>
+      <tr>
+        <th>Sl. No.</th>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Email</th>
+        <th>DOB</th>
+        <th>DOJ</th>
+        <th>City</th>
+        <th>PinCode</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let user of userList; let i = index">
+        <td>{{ user.id }}</td>
+        <td>{{ user.firstName }}</td>
+        <td>{{ user.lastName }}</td>
+        <td>{{ user.email }}</td>
+        <td>{{ user.dob | date: "mediumDate" }}</td>
+        <td>{{ user.doj | date: "mediumDate" }}</td>
+        <td>{{ user.city }}</td>
+        <td>{{ user.pinCode }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
